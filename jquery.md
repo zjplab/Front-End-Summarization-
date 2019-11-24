@@ -2,11 +2,6 @@
 
 Adding jQuery to the web is easy:
 ```html
-
-<html>
-    <head>
-        <title>Demo page</title>
-    </head>
     <body>
         <!-- your page -->
         <script src="[location of minified jQuery JavaScript file]"></script>
@@ -14,7 +9,6 @@ Adding jQuery to the web is easy:
             // your custom scripts that use jQuery
         </script>
     </body>
-</head>
 ```
 ## [Dollar Sign Usage](https://programming.argmax.club/2019/07/dollar-sign-in-jquery.html)
 
