@@ -80,3 +80,29 @@ $(item).mouseout(function() {
 ```
 
 # Contents, Events and Effects
+
+## [Mofiying Elements](https://programming.argmax.club/2019/08/modifying-elements.html)
+```javascript
+//If you wish to retrieve the value of an input control, all you have to do is call val().
+var value = $('#some-input-control').val();
+
+/*If you wish to set the value, simply pass the new value in as a parameter to the val function. If you wish to set a textbox to a blank value, simply use an empty string.*/
+// Empty a textbox
+$('#some-textbox').val('');
+
+//Remember that attr is going to replace the style attribute, not update it, so any existing styles would be lost. Trying to add or remove styles using attr becomes a challenge.
+$('#target').attr('style', 'color: red');
+
+// Retrieve an item's color
+var color = $('#target').css('color');
+
+// Change an item's color to red
+$('#target').css('color', 'red');
+
+var style = {
+	color: 'red',
+	backgroundColor: yellow
+};
+
+$('#target').css(style);
+```
