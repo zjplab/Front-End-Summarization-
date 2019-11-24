@@ -78,3 +78,5 @@ $(item).mouseout(function() {
     alert('mouse out');
 });
 ```
+
+# Contents, Events and Effects
