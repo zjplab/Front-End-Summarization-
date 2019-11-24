@@ -106,3 +106,45 @@ var style = {
 
 $('#target').css(style);
 ```
+## [Adding New Elements](https://programming.argmax.club/2019/07/dom-manipulation.html)
+```javascript
+// prepend is called on the target, and accepts the new content as the parameter
+$('#target').prepend('<div>New content</div>');
+
+// prependTo is called on the new content, and accepts the target as the parameter
+$('<div>New content</div>').prependTo('#target');
+
+// append is called on the target, and accepts the new content as the parameter
+$('#target').append('<div>New content</div>');
+
+// appendTo is called on the new content, and accepts the target as the parameter
+$('<div>New content</div>').appendTo('#target');
+
+// after is called on the target, and accepts the new content as a parameter
+$('target').after('
+New content
+');
+
+// insertAfter is called on the new content, and accepts the target as a parameter
+$('
+New content
+').insertAfter('#target');
+
+// before is called on the target, and accepts the new content as a parameter
+$('target').before('
+New content
+');
+
+// insertBefore is called on the new content, and accepts the target as a parameter
+$('
+New content
+').insertBefore('#target');
+
+$('#target').wrap('<section></section>');
+
+//wrapAll behaves differently. Rather than wrapping each returned element, wrapAll wraps all returned content with one new element. As a result, the JavaScript
+$('.demo').wrapAll('<section></section>');
+
+//wrapInner is different from both wrap and wrapAll in that wrapInner operates on the children of the target, rather than on the target itself.
+$('#target').wrapInner('<section></section>');
+```
