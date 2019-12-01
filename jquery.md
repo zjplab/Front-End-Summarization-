@@ -148,3 +148,90 @@ $('.demo').wrapAll('<section></section>');
 //wrapInner is different from both wrap and wrapAll in that wrapInner operates on the children of the target, rather than on the target itself.
 $('#target').wrapInner('<section></section>');
 ```
+## [Removing, Replacing and Cloning](https://programming.argmax.club/2019/09/removing-replacing-and-cloning.html)
+```javascript
+//Remove and emptyy
+ $('#target').remove()
+ $('#target').empty()
+ 
+ // replaceWith replaces the content on the left with the new content in the parameter
+$('#target').replaceWith('<div>NEW content</div>');
+
+// replaceAll replaces the target in the parameter with the content on the left
+$('<div>NEW content</div>').replaceAll('#target');
+```
+Clone:
+```html
+<button type="button" id="add-line">Add new line</button>
+<div id="container">
+	<div class="user-entry">
+		<label>Email:</label>
+		<input type="email" />
+		<label>Password:</label>
+		<input type="password" />
+	</div>
+</div>
+```
+```javascript
+ $(function() {
+ 	$userForm = $('.user-entry').clone;
+	$('#add-line').click(function() {
+		$('#container').append($userForm.clone()); //clone() again to make a deep copy
+	});
+ });
+ ```
+ 
+ ## [Event Handlers](https://programming.argmax.club/2019/08/event-handlers.html)
+ ```javascript
+ $('button').click(function() {
+    // this is linked to button that was clicked, but is a DOM object
+    // convert it to a jQuery object by using the jQuery factory
+    $(this).text('Clicked!!');
+});
+
+// Write out the x/y coordinates of the mouse on click
+$('button').click(function(e) {
+    $('#output').text(e.pageX + 'x' + e.pageY);
+});
+
+//click
+$('#target').click(function() { alert('hello, world!'); });
+
+//double click 
+$('#target').dblclick(function() { alert('hello, world!'); });
+
+<!-- sample HTML -->
+<div>
+	<span id="target">Basic data</span>
+	<span id="target-help"></span>
+</div>
+$('#target').mouseenter(function() {
+	$('#target-help').text('More data');
+}).mouseleave(function() {
+	$('#target-help').text('');
+});
+
+$('#target').hover(function() {
+	// mouseenter
+	$('#target-help').text('More data');
+}, function() {
+	// mouseleave
+	$('#target-help').text('');
+});
+
+// sample JavaScript
+$('#phone').focus(function() {
+    // Control has focus. Display help
+    $('#phone-help').text('Please enter your phone number as all digits');
+}).blur(function() {
+    // Control lost focus. Clear help
+    $('#phone-help').text('');
+});
+
+$('#target').blur(function() {
+    // retrieve the value using val
+    var value = $('#target').val();
+    alert(value);
+})
+```
+   
