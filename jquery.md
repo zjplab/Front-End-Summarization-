@@ -235,3 +235,4 @@ $('#target').blur(function() {
 })
 ```
    
+## [Registering Event Handlers](https://programming.argmax.club/2019/08/registering-event-handlers.html)
