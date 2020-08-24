@@ -10,10 +10,10 @@ Adding jQuery to the web is easy:
         </script>
     </body>
 ```
-## [Dollar Sign Usage](https://programming.argmax.club/2019/07/dollar-sign-in-jquery.html)
+## [Dollar Sign Usage](https://programming.zjplab.com/2019/07/dollar-sign-in-jquery.html)
 `S(content)`
  `$.method()`
-## [CSS Selectors in jQuery](https://programming.argmax.club/2019/07/using-css-selectors-with-jquery.html)
+## [CSS Selectors in jQuery](https://programming.zjplab.com/2019/07/using-css-selectors-with-jquery.html)
 ```javascript
 $('h1') // selects all h1 elements
 $('.class-name') // selects all elements with a class of class-name
@@ -39,9 +39,9 @@ $('nav > a')
 $('nav a')
 
 ```
-## [Navigating the DOM](https://programming.argmax.club/2019/07/navigate-dom-with-jquery.html)
+## [Navigating the DOM](https://programming.zjplab.com/2019/07/navigate-dom-with-jquery.html)
 CSS offers quite a bit of power when it comes to selecting items. However, there are a couple of limitations. First, CSS selectors aren't dynamic; if new items are added later those new items aren't part of the selection. Second, there are times when it's just easier to express the items you want programatically rather than using CSS. Fortunately, jQuery allows us to select items by using code as well.
-## [DOM Manipulation](https://programming.argmax.club/2019/07/dom-manipulation.html)
+## [DOM Manipulation](https://programming.zjplab.com/2019/07/dom-manipulation.html)
 ```javascript
 currentElement.addClass('class-name');
 currentElement.removeClass('class-name');
@@ -81,7 +81,7 @@ $(item).mouseout(function() {
 
 # Contents, Events and Effects
 
-## [Mofiying Elements](https://programming.argmax.club/2019/08/modifying-elements.html)
+## [Mofiying Elements](https://programming.zjplab.com/2019/08/modifying-elements.html)
 ```javascript
 //If you wish to retrieve the value of an input control, all you have to do is call val().
 var value = $('#some-input-control').val();
@@ -106,7 +106,7 @@ var style = {
 
 $('#target').css(style);
 ```
-## [Adding New Elements](https://programming.argmax.club/2019/07/dom-manipulation.html)
+## [Adding New Elements](https://programming.zjplab.com/2019/07/dom-manipulation.html)
 ```javascript
 // prepend is called on the target, and accepts the new content as the parameter
 $('#target').prepend('<div>New content</div>');
@@ -148,7 +148,7 @@ $('.demo').wrapAll('<section></section>');
 //wrapInner is different from both wrap and wrapAll in that wrapInner operates on the children of the target, rather than on the target itself.
 $('#target').wrapInner('<section></section>');
 ```
-## [Removing, Replacing and Cloning](https://programming.argmax.club/2019/09/removing-replacing-and-cloning.html)
+## [Removing, Replacing and Cloning](https://programming.zjplab.com/2019/09/removing-replacing-and-cloning.html)
 ```javascript
 //Remove and emptyy
  $('#target').remove()
@@ -181,7 +181,7 @@ Clone:
  });
  ```
  
- ## [Event Handlers](https://programming.argmax.club/2019/08/event-handlers.html)
+ ## [Event Handlers](https://programming.zjplab.com/2019/08/event-handlers.html)
  ```javascript
  $('button').click(function() {
     // this is linked to button that was clicked, but is a DOM object
@@ -235,7 +235,7 @@ $('#target').blur(function() {
 })
 ```
    
-## [Registering Event Handlers](https://programming.argmax.club/2019/08/registering-event-handlers.html)
+## [Registering Event Handlers](https://programming.zjplab.com/2019/08/registering-event-handlers.html)
 
 
 
