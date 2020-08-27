@@ -391,7 +391,7 @@ function beginProcessing() {
 }
 ```
 
-## [Javascript Object Notation]
+## Javascript Object Notation
 ```javascript
 // Create an instance of Object, a basic JavaScript object
 var person = new Object();
@@ -411,3 +411,5 @@ $('#first-name-display').text(newPerson.firstName);
 $('#last-name-display').text(newPerson.lastName);
 
 ```
+
+## [Calling the server]()
