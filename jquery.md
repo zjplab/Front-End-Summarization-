@@ -241,4 +241,173 @@ $('#target').blur(function() {
 
 # Asynchrouonus programming and AJax
 
-## 
+## [Using Promises](https://programming.zjplab.com/2019/09/using-promises.html)
+```javascript
+// code to obtain promise object
+promise.done(function(data) {
+ // data will contain the data returned by the operation
+});
+
+// code to obtain promise object
+promise.fail(function(data) {
+ // data will contain the data returned by the operation
+});
+
+// code to obtain promise object
+promise.progress(function(data) {
+ // data will contain the data returned by the operation
+});
+
+// code to obtain promise object
+promise.done(function(data) {
+ // success
+}).fail(function(data) {
+ // failure
+});
+
+// code to obtain promise object
+promise.then(function(data) {
+    // success
+}, function(data) {
+    // failure
+});
+```
+
+## [Web Workers](https://programming.zjplab.com/2019/09/web-workers.html)
+```javascript
+//calling script
+var worker = new Worker('https://s.codepen.io/GeekTrainer/pen/bec3c95852af59cba0727c08c5c45b5f.js');
+
+$('#start-worker').click(function() {
+  // Stop worker when you're done
+  worker.postMessage('START');
+});
+
+$('#stop-worker').click(function() {
+  worker.postMessage('STOP');
+})
+
+$('#send-message').click(function() {
+  worker.postMessage($('#message').val());
+});
+
+worker.addEventListener('message', function(e) {
+  if (e.data === 'STARTED') {
+    // worker has been started
+    // sample: update the screen to display worker started
+    $('#output').append('<div>Worker started</div>');
+    // sample: Disable start button, and enable send and stop buttons
+    $('#start-worker').attr('disabled', 'disabled');
+    $('#stop-worker').removeAttr('disabled');
+    $('#send-message').removeAttr('disabled');
+  } else if (e.data === 'STOPPED') {
+    // worker has been stopped
+    // cleanup work (if needed)
+    // sample: update the screen to display worker stopped
+    $('#output').append('<div>Worker stopped</div>');
+    // sample: disable buttons
+    $('#stop-worker').attr('disabled', 'disabled');
+    $('#send-message').attr('disabled', 'disabled');
+    // set worker to NULL
+    worker = null;
+  } else {
+    // Normal message. Act upon data as needed
+    // Sample: display data on screen
+    $('#output').append('<div>' + e.data + '</div>');
+  }
+});
+```
+```javascript
+//server script
+self.addEventListener('message', function(e) {
+	if(e.data === 'START') {
+		// Start message received.
+		// Begin work
+		startWork();
+	} else if (e.data === 'STOP') {
+		// Stop message received.
+		// Perform cleanup and terminate
+		stopWork();
+	} else {
+		// A different message has been received
+		// This is data that needs to be acted upon
+		processData(e.data);
+	}
+});
+
+function startWork() {
+	// code to start performing work here
+	// send a message to the calling page
+	// worker has started
+	self.postMessage('STARTED');
+}
+
+function stopWork() {
+	// cleanupp code here
+	// stop the worker
+	self.postMessage('STOPPED');
+	self.close();
+}
+
+function processData(data) {
+	// perform the work on the data
+	self.postMessage('Processed ' + data);
+}
+```
+## [Using Defered](https://programming.zjplab.com/2019/09/using-deferred.html)
+ you'll use `Deferred` to return a `promise`
+
+    Create an instance of deferred: var deferred = $.Deferred();
+    Start your asynchronous operation, typically using a worker
+    Add the appropriate code to detect success and send the success signal: deferred.resolve()
+    Add the appropriate code to detect failure and send the failure signal: deferred.reject()
+    Return the promise: return deferred.promise();
+```javascript
+function beginProcessing() {
+ // Create deferred object & make sure it's going to be in scope
+ var deferred = new $.Deferred();
+
+ // Create our worker (just like before)
+ var worker = new Worker('./Scripts/deferred.js');
+
+ // Register the message event handler
+ worker.addEventListener('message', function (e) {
+  // simple messaging - if the worker is ready it'll send a message with READY as the text
+  if (e.data === 'READY') {
+   // No UI code
+   // Progress notification
+   deferred.notify('Worker started');
+  } else if(e.data === 'COMPLETED') {
+   // processing is done
+   // No UI code
+   // Completed notification
+   deferred.resolve('Worker completed');
+
+   worker.terminate();
+  }
+ });
+
+ return deferred.promise();
+}
+```
+
+## [Javascript Object Notation]
+```javascript
+// Create an instance of Object, a basic JavaScript object
+var person = new Object();
+
+// add properties
+person.firstName = 'Christopher';
+person.lastName = 'Harrison';
+
+// serialize
+var jsonString = JSON.stringify(person);
+
+// Deserialize a JSON string
+var newPerson = JSON.parse(jsonString);
+
+// access properties as normal
+$('#first-name-display').text(newPerson.firstName);
+$('#last-name-display').text(newPerson.lastName);
+
+```
