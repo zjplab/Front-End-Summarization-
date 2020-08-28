@@ -412,4 +412,49 @@ $('#last-name-display').text(newPerson.lastName);
 
 ```
 
-## [Calling the server]()
+## [Calling the server](https://programming.zjplab.com/2020/08/calling-server.html)
+```javascript
+$.get(
+    'some-url', // The URL to call
+    function(data) { // Success event handler
+        // The data parameter contains the string
+        $('#output').text(data);
+    }
+);
+
+// Option one (pass the success function as a parameter)
+$.get('some-url', function(data) { $('#output').text(data); });
+
+// Option two (use the done function of the promise)
+$.get('some-url').done(function(data) { $('#output').text(data); });
+
+$.getJSON('/api/Demo', function (person) {
+	$('#first-name').val(person.firstName);
+	$('#last-name').val(person.lastName);
+});
+
+// get the data we need to send
+var person = { firstName: 'Christopher', lastName: 'Harrison' };
+
+// Call POST
+
+$.post('URL', // Pass in the URL you need to access
+    person, // Pass in the data to send via POST
+    function(data) {
+        // success event handler
+        // parameter contains value returned by server
+    }
+);
+
+$(document).ajaxSend(function () {
+	// raised when a call starts
+	$('#status').append('<div>Call started</div>');
+}).ajaxComplete(function () {
+	// raised when a call completes
+	$('#status').append('<div>Call completed</div>');
+});
+
+$('#target').load('some-url.html');
+
+$.getScript('some-url.js');
+```
